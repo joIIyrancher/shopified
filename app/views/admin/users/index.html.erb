@@ -1,0 +1,41 @@
+<h1>Admin::Users#index</h1>
+<p>Find me in app/views/admin/users/index.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Admin</th>
+      <th>Country</th>
+      <th>Avatar</th>
+      <th>Seller Rating</th>
+      <th>Buyer Rating</th>
+      <th>Profile</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.username %></td>
+      <td><%= user.email %></td>
+      <td><%= user.admin ? "Admin" : "User" %></td>
+      <td><%= user.country %></td>
+      <td><%= image_tag user.photo %></td>
+      <td><%= user.seller_rating.nil? ? "n/a" : user.seller_rating %></td>
+      <td><%= user.buyer_rating.nil? ? "n/a" : user.buyer_rating %></td>
+      <td><%= link_to user.first_name + "'s View", admin_user_path(user) %></td>
+    </tr>
+
+  <% end %>
+  </tbody>
+
+</table>

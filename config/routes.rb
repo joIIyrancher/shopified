@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  namespace :admin do
+    resources :users
+  end
+
+  resources :users do
+    resource :cart
+  end
+  resources :products
+  resources :reviews
+  resource :session, only: [:new, :create, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
